@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropMart - Premium Products, Great Prices</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="announcement-bar">
+        <p>🚚 Free Shipping on Orders Over ₹3000 | 30-Day Returns</p>
+    </div>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <span class="logo-icon">📦</span>
+                DropMart
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#products" class="nav-link">Products</a>
+                <a href="#featured" class="nav-link">Featured</a>
+                <a href="#reviews" class="nav-link">Reviews</a>
+            </div>
+            <div class="nav-actions">
+                <button class="search-btn">🔍</button>
+                <div class="cart-icon" onclick="toggleCart()">
+                    🛒 <span id="cartCount">0</span>
+                </div>
+                <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            </div>
+        </div>
+    </nav>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button onclick="toggleCart()" class="close-btn">✕</button>
+        </div>
+        <div id="cartItems" class="cart-items">
+        </div>
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>Subtotal:</span>
+                <span id="cartTotal">₹0.00</span>
+            </div>
+            <div class="cart-shipping">
+                <span>Shipping:</span>
+                <span>Calculated at checkout</span>
+            </div>
+        </div>
+        <button class="checkout-btn" onclick="checkout()">
+            <span>Proceed to Checkout</span>
+            <span class="btn-icon">→</span>
+        </button>
+        <p class="cart-guarantee">🔒 Secure Checkout | 100% Satisfaction Guaranteed</p>
+    </div>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Premium Quality</span>
+            <h1>Discover Amazing Products at Unbeatable Prices</h1>
+            <p>Join thousands of satisfied customers who trust DropMart for quality products and exceptional service</p>
+            <div class="hero-buttons">
+                <a href="#products" class="cta-button primary">Shop Now</a>
+                <a href="#featured" class="cta-button secondary">View Featured</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">50K+</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4.7★</span>
+                    <span class="stat-label">Customer Rating</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="featured" class="featured">
+        <div class="section-header">
+            <h2>Featured Products</h2>
+            <p>Hand-picked premium products just for you</p>
+        </div>
+        <div class="featured-grid">
+            <div class="product-card">
+                <div class="product-badge">Best Seller</div>
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800" alt="Premium Headphones">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="product-content">
+                    <h3>Sony WH-CH720N</h3>
+                    <p>High-quality wireless headphones with noise cancellation</p>
+                    <div class="product-meta">
+                        <span class="price">₹7,829.13</span>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(128)</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Sony WH-CH720N', 7829.13)" class="add-to-cart-btn">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-badge">New</div>
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800" alt="Sony DSLR Camera">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="product-content">
+                    <h3>Sony DSLR Camera</h3>
+                    <p>Digital camera that combines optics and mechanisms of single-lens reflex camera </p>
+                    <div class="product-meta">
+                        <span class="price">₹41,309.13 </span>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(94)</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Sony DSLR Camera', 41309.13)" class="add-to-cart-btn">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-badge">Sale</div>
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?auto=format&fit=crop&w=800" alt="Wireless Earbuds">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="product-content">
+                    <h3>Apple Airpods 2</h3>
+                    <p>True wireless earbuds with premium sound quality</p>
+                    <div class="product-meta">
+                        <span class="price">₹6089.13 </span>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(76)</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Apple Airpods 2', 6089.13)" class="add-to-cart-btn">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="features">
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🚚</div>
+                <h3>Free Shipping</h3>
+                <p>On orders over ₹3000</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Fast Delivery</h3>
+                <p>2-4 business days</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">↩️</div>
+                <h3>Easy Returns</h3>
+                <p>30-day return policy</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure Payment</h3>
+                <p>100% secure checkout</p>
+            </div>
+        </div>
+    </section>
+    <section id="reviews" class="reviews">
+        <div class="section-header">
+            <h2>What Our Customers Say</h2>
+            <p>Join thousands of satisfied customers worldwide</p>
+        </div>
+        <div class="review-grid">
+            <div class="review-card">
+                <div class="reviewer-info">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100" alt="Sarah M" class="reviewer-image">
+                    <div>
+                        <h4>Sarah M</h4>
+                        <span class="verified-badge">✓ Verified Buyer</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <p>"Amazing quality and fast shipping. The customer service was exceptional, and I'll definitely be buying again!"</p>
+                <span class="review-date">2 days ago</span>
+            </div>
+            <div class="review-card">
+                <div class="reviewer-info">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100" alt="Prathiyush" class="reviewer-image">
+                    <div>
+                        <h4>Prathiyush</h4>
+                        <span class="verified-badge">✓ Verified Buyer</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <p>"Best prices I've found online. The product quality exceeded my expectations. Great customer service too!"</p>
+                <span class="review-date">1 week ago</span>
+            </div>
+            <div class="review-card">
+                <div class="reviewer-info">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100" alt="Mukundan" class="reviewer-image">
+                    <div>
+                        <h4>Mukundan</h4>
+                        <span class="verified-badge">✓ Verified Buyer</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <p>"The products exceeded my expectations. Fast shipping and great packaging. Highly recommended!"</p>
+                <span class="review-date">2 weeks ago</span>
+            </div>
+        </div>
+        <div class="reviews-cta">
+            <p>Don't just take our word for it</p>
+            <a href="#products" class="cta-button primary">Shop Now</a>
+        </div>
+    </section>
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Get Special Offers & Updates</h2>
+            <p>Subscribe to our newsletter and get 10% off your first order!</p>
+            <form id="newsletterForm" onsubmit="subscribeNewsletter(event)">
+                <div class="form-group">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </div>
+                <p class="form-disclaimer">By subscribing, you agree to receive marketing emails from DropMart</p>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <span class="logo-icon">📦</span>
+                    DropMart
+                </div>
+                <p>Premium products at competitive prices, delivered to your doorstep.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">Instagram</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#products">Products</a>
+                <a href="#featured">Featured</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#">About Us</a>
+                <a href="#">Blog</a>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <a href="#">Contact Us</a>
+                <a href="#">Shipping Policy</a>
+                <a href="#">Returns & Exchanges</a>
+                <a href="#">FAQs</a>
+                <a href="#">Track Order</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>📧 support@dropmart.com</p>
+                <p>📞 (555) 123-4567</p>
+                <p>🕒 Mon-Fri: 9AM - 6PM EST</p>
+                <div class="payment-methods">
+                    <span>We Accept:</span>
+                    <div class="payment-icons">
+                        💳 Visa, Mastercard, Amex
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DropMart. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
